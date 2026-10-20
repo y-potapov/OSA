@@ -1,0 +1,10 @@
+=== MEMORY CONFIGURATION & MODULES ===
+Memory:
+
+      Memory: 8 GB
+      Type: LPDDR4
+      Manufacturer: Micron
+
+
+=== TOTAL MEMORY (BYTES) ===
+8589934592
