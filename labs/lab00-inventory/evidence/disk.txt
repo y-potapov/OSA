@@ -1,0 +1,107 @@
+=== FREE SPACE ON ROOT VOLUME (df -h /) ===
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   228Gi    10Gi   176Gi     6%    426k  1.8G    0%   /
+
+=== STORAGE CONTROLLER & DISK MODEL ===
+Storage:
+
+    Data:
+
+      Free: 188,7 GB (188 702 777 344 bytes)
+      Capacity: 245,11 GB (245 107 195 904 bytes)
+      Mount Point: /System/Volumes/Data
+      File System: APFS
+      Writable: Yes
+      Ignore Ownership: No
+      BSD Name: disk3s5
+      Volume UUID: 3C1AD5DF-98F2-4AE9-AF50-76BAB250A8B1
+      Physical Drive:
+          Device Name: APPLE SSD AP0256Q
+          Media Name: AppleAPFSMedia
+          Medium Type: SSD
+          Protocol: Apple Fabric
+          Internal: Yes
+          Partition Map Type: Unknown
+          S.M.A.R.T. Status: Verified
+
+    Macintosh HD:
+
+      Free: 188,7 GB (188 702 777 344 bytes)
+      Capacity: 245,11 GB (245 107 195 904 bytes)
+      Mount Point: /
+      File System: APFS
+      Writable: No
+      Ignore Ownership: No
+      BSD Name: disk3s1s1
+      Volume UUID: 04A475FC-8DC9-4CE2-8507-28DCD7603E3F
+      Physical Drive:
+          Device Name: APPLE SSD AP0256Q
+          Media Name: AppleAPFSMedia
+          Medium Type: SSD
+          Protocol: Apple Fabric
+          Internal: Yes
+          Partition Map Type: Unknown
+          S.M.A.R.T. Status: Verified
+
+
+=== DISKUTIL VOLUME INFORMATION ===
+   Device Identifier:         disk3s1s1
+   Device Node:               /dev/disk3s1s1
+   Whole:                     No
+   Part of Whole:             disk3
+
+   Volume Name:               Macintosh HD
+   Mounted:                   Yes
+   Mount Point:               /
+
+   Partition Type:            41504653-0000-11AA-AA11-00306543ECAC
+   File System Personality:   APFS
+   Type (Bundle):             apfs
+   Name (User Visible):       APFS
+   Owners:                    Enabled
+
+   OS Can Be Installed:       No
+   Booter Disk:               disk3s2
+   Recovery Disk:             disk3s3
+   Media Type:                Общий
+   Protocol:                  Apple Fabric
+   SMART Status:              Verified
+   Volume UUID:               04A475FC-8DC9-4CE2-8507-28DCD7603E3F
+   Disk / Partition UUID:     04A475FC-8DC9-4CE2-8507-28DCD7603E3F
+
+   Disk Size:                 245.1 GB (245107195904 Bytes) (exactly 478724992 512-Byte-Units)
+   Device Block Size:         4096 Bytes
+
+   Volume Used Space:         11.3 GB (11254505472 Bytes) (exactly 21981456 512-Byte-Units)
+   Container Total Space:     245.1 GB (245107195904 Bytes) (exactly 478724992 512-Byte-Units)
+   Container Free Space:      188.7 GB (188702642176 Bytes) (exactly 368559848 512-Byte-Units)
+   Allocation Block Size:     4096 Bytes
+
+   Media OS Use Only:         No
+   Media Read-Only:           Yes
+   Volume Read-Only:          Yes (read-only mount flag set)
+
+   Device Location:           Internal
+   Removable Media:           Fixed
+
+   Solid State:               Yes
+   Hardware AES Support:      Yes
+
+   This disk is an APFS Volume Snapshot.  APFS Information:
+   APFS Snapshot Name:        com.apple.os.update-29730BCC891929D4C9C8562A35027BC1BB18E586487887FB5F857795CA891A29
+   APFS Snapshot UUID:        04A475FC-8DC9-4CE2-8507-28DCD7603E3F
+   APFS Container:            disk3
+   APFS Physical Store:       disk0s2
+   Fusion Drive:              No
+   APFS Volume Group:         3C1AD5DF-98F2-4AE9-AF50-76BAB250A8B1
+   EFI Driver In macOS:       2332120031000002
+   Encrypted:                 No
+   FileVault:                 No
+   Sealed:                    Yes
+   Locked:                    No
+
+   APFS Snapshots are defined upon this APFS Volume.  Snapshot list:
+   Snapshot UUID:             04A475FC-8DC9-4CE2-8507-28DCD7603E3F
+   Name:                      com.apple.os.update-29730BCC891929D4C9C8562A35027BC1BB18E586487887FB5F857795CA891A29
+   XID:                       1271098
+
