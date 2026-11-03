@@ -1,24 +1,31 @@
-# Lab 2 — A Windows guest, and a network between them
+Lab 2 — A Windows guest, and a network between them
+Pair: Arman Ibrayev Driver first half: Arman
+Machine: Asus TUF gaming A15, Windows 11, 8 GB RAM, 6 cores>, guests Ubuntu Server + Windows 11 Enterprise eval
+Date: 27.10.2026
+What I did
+1. Downloaded Windows 11 Enterprise evaluation. Licence: https://www.microsoft.com/en-us/evalcenter/evaluate-windows-11-enterprise
+2. Created lab02-windows: 2 vCPU, 4 GB, 64 GB thin, UEFI + Secure Boot, vTPM.
+3. Network mode: VirtualBox NAT Network (NatNetwork), both guests. Why: Standard VirtualBox NAT isolates each VM behind an independent router, preventing them from seeing each other. Bridged mode fails on campus Wi-Fi due to MAC filtering. NAT Network provides an internal shared subnet with outbound Internet access.
+4. Ping Ubuntu → Windows timed out because Windows Defender Firewall blocks inbound ICMPv4 Echo Requests by default on Public network profiles. Fixed with: New-NetFirewallRule -DisplayName "Allow ping in (ICMPv4)" -Protocol ICMPv4 -IcmpType 8 -Direction Inbound -Action Allow
+5. Overcommitment: set 5 GB + 5 GB on a 8 GB host.
+Network diagram
 
-Pair:                     Driver first half:
-Machine:
-Date:
-
-## What I did
-
-Steps, with commands in code blocks. Not prose about the steps.
-
-```
-<command>
-<output, trimmed>
-```
-
-## Result
-
-## What did not work the first time
-
-At least one thing. What I saw, what it turned out to be, what I did about it.
-
-## Evidence
-
-- [evidence/](evidence/) — one line per file on what it proves
+          Internet
+             |
+  Host laptop (Home Wi-Fi)
+             |
+ [VirtualBox NAT Network · 10.0.2.0/24]
+/ 
+lab01-ubuntu lab02-windows
+10.0.2.4/24 10.0.2.3
+Result:
+Metric | Before | After
+Host RAM in use | 6.2 GB | I can't take a screenshot after adding more RAM because as soon as I open two virtual machines with 5 GB of memory each, my laptop immediately SHUTS DOWN, and nothing helps.
+Available RAM |1.2 GB |
+Commited memory | 9/17.4 |
+Cached memory |1.2 GB |
+What I noticed
+After reallocating RAM between two virtual machines, the allocated memory became heavily overloaded; as a result, the laptop triggered a safety shutdown—demonstrating the potential consequences for the host system when RAM is reallocated incorrectly.
+What did not work for the first time
+1. Initially, Ubuntu could not successfully ping Windows because incoming ICMP requests were blocked by Windows Firewall
+2. I couldn't take photos as proof after adding the RAM because the laptop shuts down immediately.
