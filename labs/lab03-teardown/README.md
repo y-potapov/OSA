@@ -1,24 +1,48 @@
-# Lab 3 — Teardown, and the same machine from the command line
+Lab 3 — Teardown, and the same machine from the command line
 
-Pair:                     Driver first half:
-Machine:
-Date:
+Ibrayev Arman. Date: 08.11.2026
 
-## What I did
+Part 1 — Ten parts
 
-Steps, with commands in code blocks. Not prose about the steps.
+AMD Ryzen 5 7600
+What it is: 6 cores / 12 threads, 3.8 GHz base, up to 5.1 GHz boost, 32 MB L3 cache, 65 W TDP. Connects to: socket AM5; its memory controller supports DDR5 only (DDR5-5200 with two DIMMs). Limit: works only in AM5 boards with DDR5 — it cannot use DDR4 and cannot be put in an LGA1700 board. Ships with the AMD Wraith Stealth cooler. Source: https://www.amd.com/ja/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html 3. Intel Core i5-13400
 
-```
-<command>
-<output, trimmed>
-```
+What it is (verify): 10 cores (6 P-cores + 4 E-cores) / 16 threads, up to 4.6 GHz, 20 MB cache, 65 W base power. Connects to: socket LGA1700; its memory controller supports both DDR4 and DDR5 (the board decides which). Limit: only LGA1700 boards (not AM5); the memory type is fixed by the board, not the CPU. Source: https://www.intel.com/content/www/us/en/products/sku/230495/intel-core-i513400-processor-20m-cache-up-to-4-60-ghz/specifications.html 3. ASUS PRIME B650M-A
 
-## Result
+What it is: Micro-ATX board, AMD B650 chipset. Connects to: socket AM5; 4 × DDR5 DIMM slots (dual channel, up to 5600 MT/s with OC, AMD EXPO); 2 × M.2 (Key M, 2242/2260/2280): M.2_1 is PCIe 5.0 x4 with Ryzen 7000/9000, M.2_2 is PCIe 4.0 x4 via the chipset; 4 × SATA 6 Gb/s. Limit: accepts Ryzen 7000, 8000 and 9000 desktop CPUs on AM5 (up to 170 W) and DDR5 only; older BIOS may need a BIOS FlashBack update for newer CPUs. Source: https://asus.com/motherboards-components/motherboards/prime/prime-b650m-a/techspec 4. MSI PRO B760M-A WIFI DDR4
 
-## What did not work the first time
+What it is (verify): Micro-ATX board, Intel B760 chipset. Connects to: socket LGA1700; DDR4 DIMM slots ; M.2 and SATA ports — 2 . Limit: 12th/13th/14th-gen Intel CPUs only (check the CPU Support list ; DDR4 modules only, DDR5 will not fit. Source: https://ru.msi.com/Motherboard/PRO-B760M-A-WIFI-DDR4 5. Kingston FURY Beast DDR5-5600, 16 GB
 
-At least one thing. What I saw, what it turned out to be, what I did about it.
+What it is (verify): DDR5 DIMM (288-pin), 16 GB, 5600 MT/s. Voltage: 1.25, 1.35, 1,4 V: Operating temperature: 0-85 C Connects to: desktop DIMM slots of a DDR5 board, one module per channel slot. Limit: only DDR5 boards — the notch is in a different place than on DDR4, so it physically does not fit a DDR4 slot. Actual speed also depends on the CPU's memory controller. Source: https://www.kingston.com/en/memory/gaming/kingston-fury-beast-ddr5-memory?speed=5600mt%2Fs&total%20(kit)%20capacity=16gb&kit=single%20module&cas%20latency=40&dram%20density=16gbit&profile%20type=intel%20xmp&color=black 6. Crucial DDR4-3200, 16 GB DIMM
 
-## Evidence
+What it is (verify): DDR4 UDIMM (288-pin), 16 GB, 3200 MT/s, 1.2 V. Connects to: desktop DIMM slots of a DDR4 board. Limit: only DDR4 boards; it cannot be used with the Ryzen 5 7600 / AM5 at all (AM5 has no DDR4 support). Source: https://www.crucial.com/memory/ddr4/ct16g4dfra32a?srsltid=AYCX9vJNCciK2IA5ecF3g3iWMa1T9sPCf775VGMK2wQIi8cXMY_-M4cT 7. Samsung 990 PRO 1 TB
 
-- [evidence/](evidence/) — one line per file on what it proves
+What it is: NVMe SSD, M.2 2280, PCIe 4.0 x4, NVMe 2.0, up to 7,450 MB/s read and 6,900 MB/s write. Connects to: an M.2 Key M slot directly on the board — no SATA cable or power cable. Limit: needs an M.2 NVMe slot; PCIe 4.0 speed is only reached if the slot provides PCIe 4.0 x4 (the PCIe 5.0 slot on the B650M-A is backward compatible). Source: https://download.semiconductor.samsung.com/resources/data-sheet/Samsung_NVMe_SSD_990_PRO_Datasheet_Rev.1.0.pdf 8. Samsung 870 EVO 1 TB
+
+What it is (verify): SATA III SSD, 2.5" form factor, 1 TB, up to 560 MB/s read / 530 MB/s write. Connects to: a SATA port on the board + a SATA data cable + a SATA power cable from the PSU. Limit: the SATA bus caps speed at about 550 MB/s — roughly 13× slower than the 990 PRO's peak read. Source: https://news.samsung.com/kz_ru/samsung_870_evo 9. Corsair RM750e (750 W)
+
+What it is (verify): 750 W ATX power supply, 80 PLUS Gold, fully modular, ATX 3.1 / PCIe 5.1. Connects to: the board (24-pin ATX + CPU 8-pin), drives (SATA power), graphics card (PCIe power). Limit: total output of 750 W — enough for either build below; only one unit exists, so only one build gets it. Source: https://www.corsair.com/eu/en/p/psu/cp-9020295-eu/rme-series-rm750e-fully-modular-low-noise-atx-power-supply-eu-cp-9020295-eu 10. Stock cooler — AMD Wraith Stealth
+
+What it is: the cooler included in the box of the Ryzen 5 7600 (AMD's product page lists "Wraith Stealth" as the included cooler). Connects to: the processor's AM5 socket (mounts on the board's AM5 retention bracket). Limit: sized for the 65 W Ryzen 5 7600 — the amount of heat it can remove is what limits it. Source: https://www.amd.com/ja/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html
+
+Build 1 — AMD / DDR5 / NVMe Part Model Why it fits here Processor AMD Ryzen 5 7600 Socket AM5, matches the board Motherboard ASUS PRIME B650M-A AM5 socket; B650 supports Ryzen 7000 Memory Kingston FURY Beast DDR5-5600 16 GB Ryzen 7000 and this board are DDR5-only SSD Samsung 990 PRO 1 TB Board has M.2 Key M slots (PCIe 5.0 / 4.0), drive is M.2 2280 PCIe 4.0 Power supply Corsair RM750e 24-pin + CPU 8-pin for the board, 750 W is plenty for a 65 W CPU Cooler AMD Wraith Stealth Included with the Ryzen 5 7600, mounts on AM5
+
+Still needs: case, operating system, monitor/keyboard. GPU
+
+Build 2 — Intel / DDR4 / SATA Part Model Why it fits here Processor Intel Core i5-13400 Socket LGA1700, matches the board Motherboard MSI PRO B760M-A WIFI DDR4 LGA1700; B760 supports 13th-gen (TODO: BIOS update needed?) Memory Crucial DDR4-3200 16 GB This board has DDR4 slots only SSD Samsung 870 EVO 1 TB SATA 2.5" — board has SATA ports; needs data + power cable
+
+Still needs: power supply (the only RM750e went to Build 1), CPU cooler, case, SATA data cable, operating system.
+
+Part 2
+
+Commands Fact Windows (PowerShell) Linux CPU model Get-CimInstance Win32_Processor | Select Name lscpu Cores / threads Get-CimInstance Win32_Processor | Select NumberOfCores, NumberOfLogicalProcessors lscpu Total memory Get-CimInstance Win32_ComputerSystem | Select TotalPhysicalMemory free -h Memory modules and speed Get-CimInstance Win32_PhysicalMemory | Select DeviceLocator, Speed, ConfiguredClockSpeed, SMBIOSMemoryType, FormFactor sudo dmidecode -t memory Disk model and type Get-PhysicalDisk | Select FriendlyName, MediaType, BusType, Size lsblk -d -o NAME,MODEL,ROTA,TRAN,SIZE Free space Get-Volume C df -h / Architecture $env:PROCESSOR_ARCHITECTURE uname -m What each system reported Fact Windows Linux (Ubuntu VM) CPU model AMD Ryzen 5 4600H with Radeon Graphics (MaxClockSpeed 2994 MHz) AMD Ryzen 5 4600H with Radeon Graphics Cores / threads 2 cores, 2 logical processors 2 cores, 1 thread per core (2 logical CPUs) Total memory 4820176896 bytes (about 4.49 GiB) 3.3 GiB total (2.8 GiB free), swap 2.0 GiB Memory modules and speed Win32_PhysicalMemory returned no rows (empty output) dmidecode printed only the header (SMBIOS 2.5) — no memory devices, no speed Disk model and type VBOX HARDDISK, BusType SATA, MediaType Unspecified, 85899345920 bytes (80 GiB) sda — VBOX HARDDISK, SATA, 25 GB (virtual); sr0 — VBOX CD-ROM Free space C: NTFS, 44.98 GB free of 78.92 GB, Healthy /dev/sda2: 25 GB, 5.2 GB used, 19 GB free (23 %) Architecture AMD64 x86_64 How the names differ, and what the VM showed
+
+The same fact has different names in each system: the CPU is Name in PowerShell but Model name in lscpu, the architecture is AMD64 on Windows but x86_64 on Linux, and disk sizes are raw bytes in PowerShell (85899345920) but human units in Linux (25G). Both guests showed the same picture of a virtual machine: the host CPU model (Ryzen 5 4600H) but only the 2 CPUs given to the VM (Linux also reported Hypervisor vendor: KVM), only the memory given to the VM (4.49 GiB on Windows, 3.3 GiB on Linux), a virtual "VBOX HARDDISK" on SATA instead of a real drive, and no physical memory modules or speed from Win32_PhysicalMemory or dmidecode. I ran everything inside the VMs, not on the physical host, so these hidden facts (memory module type and speed, the real disk model) are the ones I could not read.
+
+What did not work the first time
+
+sudo "not found" on the Linux VM. I ran sudo dmidecode -t memory and got Command '`sudo' not found, did you mean: command 'sudo' from deb sudo. The cause was a stray backtick character in front of sudo that I typed when copying the command. I retyped it starting directly with the letter s and it worked. The VM console did not react to typing. Commands I typed seemed to do nothing, and I could not paste text from the host into the VM console. I could not get SSH with port forwarding working in time, so I ran each command by hand one at a time and photographed the console output. dmidecode showed no memory modules. The output stopped after "SMBIOS 2.5 present." This is expected in a VM: the hypervisor does not expose real memory modules and speed. Windows showed empty or unspecified values for the VM. Get-PhysicalDisk printed MediaType: Unspecified, and Get-CimInstance Win32_PhysicalMemory printed no rows, so it gave no module size or speed. This is normal inside a VM, so I used BusType/FriendlyName for the disk and Win32_ComputerSystem for the total memory.
+
+Evidence
+
+evidence/windows-specs.txt — evidence/linux-specs.txt — evidence/photos/ —
